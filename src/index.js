@@ -21,7 +21,7 @@ const tasks = [
 ];
 
 const populateList = (values) => {
-  values.map((toDo, i) => {
+  values.forEach((toDo, i) => {
     const htmlText = `
     <li class='item'>
       <input type='checkbox' class='${toDo.completed}' id='${toDo.description[0]}${toDo.index}'/>
@@ -30,7 +30,7 @@ const populateList = (values) => {
       <ion-icon name='ellipsis-vertical-outline' class='three-dots display-dots'></ion-icon>  
     </li>`;
 
-    if (i + 1 === toDo.index) return (listContainer.innerHTML += htmlText);
+    if (i + 1 === toDo.index) listContainer.innerHTML += htmlText;
   });
 };
 
