@@ -35,15 +35,6 @@ body {
   color: rgb(75, 75, 75);
 }
 
-.refresh-icon {
-  cursor: pointer;
-  color: grey;
-}
-
-.refresh-icon:active {
-  color: black;
-}
-
 .input-div {
   height: 50px;
   padding: 10px;
@@ -64,15 +55,6 @@ body {
 
 input:focus {
   outline: none;
-}
-
-.enter-icon {
-  cursor: pointer;
-  color: grey;
-}
-
-.enter-icon:active {
-  color: black;
 }
 
 .list {
@@ -104,13 +86,25 @@ input[type='checkbox']:checked + label {
   text-decoration: line-through;
 }
 
-.three-dots {
+.dynamic-icons {
   margin-left: auto;
   cursor: all-scroll;
   color: grey;
 }
 
-.three-dots:active {
+.dynamic-icons:hover,
+.dynamic-icons:active {
+  color: black;
+}
+
+.static-icons {
+  margin-left: auto;
+  color: grey;
+  cursor: pointer;
+}
+
+.static-icons:hover,
+.static-icons:active {
   color: black;
 }
 
