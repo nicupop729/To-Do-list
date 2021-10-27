@@ -2,7 +2,7 @@ import './style.css';
 
 const listContainer = document.querySelector('.list');
 
-let tasks = [
+const tasks = [
   {
     description: 'to do the shopping',
     completed: false,
@@ -23,14 +23,14 @@ let tasks = [
 const populateList = (values) => {
   values.map((toDo, i) => {
     const htmlText = `
-    <li class="item">
-      <input type="checkbox" class="${toDo.completed}" id="${toDo.description[0]}${toDo.index}"/>
-      <label for="${toDo.description[0]}${toDo.index}" class="item-description">${toDo.description}</label>
+    <li class='item'>
+      <input type='checkbox' class='${toDo.completed}' id='${toDo.description[0]}${toDo.index}'/>
+      <label for='${toDo.description[0]}${toDo.index}' class='item-description'>${toDo.description}</label>
       
-      <ion-icon name="ellipsis-vertical-outline" class="three-dots display-dots"></ion-icon>  
+      <ion-icon name='ellipsis-vertical-outline' class='three-dots display-dots'></ion-icon>  
     </li>`;
 
-    if (i + 1 === toDo.index) listContainer.innerHTML += htmlText;
+    if (i + 1 === toDo.index) return (listContainer.innerHTML += htmlText);
   });
 };
 
