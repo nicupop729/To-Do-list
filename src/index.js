@@ -1,6 +1,5 @@
-import _ from 'lodash';
 import './style.css';
-import changeState from './markStatus.js';
+import changeState from './markStatus';
 
 const listContainer = document.querySelector('.list');
 
@@ -24,6 +23,7 @@ const tasks = [
 
 const saveTaskToLocal = (value) =>
   localStorage.setItem('task', JSON.stringify(value));
+
 saveTaskToLocal(tasks);
 
 const getTaskFromLocal = () => JSON.parse(localStorage.getItem('task'));
