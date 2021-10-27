@@ -21,8 +21,9 @@ const tasks = [
   },
 ];
 
-const saveTaskToLocal = (value) =>
+const saveTaskToLocal = (value) => {
   localStorage.setItem('task', JSON.stringify(value));
+};
 
 saveTaskToLocal(tasks);
 
