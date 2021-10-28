@@ -24,7 +24,7 @@ getTaskFromLocal();
 
 const populateList = (values) => {
   const sortedTasks = _.sortBy(values, 'index');
-  sortedTasks.forEach((toDo) => {
+  _.forEach(sortedTasks, (toDo) => {
     const htmlText = `
       <li class='item'>
         <input type='checkbox' class='checkbox' id='${toDo.description[0]}${

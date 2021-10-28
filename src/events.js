@@ -1,11 +1,12 @@
-import { addNewTask } from './editList';
+import _ from 'lodash';
+import { addNewTask } from './addRemove';
 import { saveTaskToLocal } from './index';
 
 export const inputTask = document.querySelector('.input-tasks');
 
 export const changeState = (value) => {
   const checkBox = document.querySelectorAll('.checkbox');
-  checkBox.forEach((check, i) => {
+  _.forEach(checkBox, (check, i) => {
     check.addEventListener('click', () => {
       value[i].completed = check.checked;
       saveTaskToLocal(value);
