@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import './style.css';
 import { changeState } from './events';
 
@@ -5,8 +6,8 @@ const listContainer = document.querySelector('.list');
 
 export let tasks = [];
 
-export const saveTaskToLocal = () => {
-  localStorage.setItem('task', JSON.stringify(tasks));
+export const saveTaskToLocal = (value) => {
+  localStorage.setItem('task', JSON.stringify(value));
 };
 
 const getTaskFromLocal = () => {
@@ -22,19 +23,22 @@ const getTaskFromLocal = () => {
 getTaskFromLocal();
 
 const populateList = (values) => {
-  values.forEach((toDo, i) => {
+  const sortedTasks = _.sortBy(values, 'index');
+  sortedTasks.forEach((toDo) => {
     const htmlText = `
       <li class='item'>
-        <input type='checkbox' class='${toDo.completed} checkbox' id='${
-      toDo.description[0]
-    }${toDo.index}' ${toDo.completed ? 'checked' : ''}/>
-        <label for='${toDo.description[0]}${
+        <input type='checkbox' class='checkbox' id='${toDo.description[0]}${
       toDo.index
-    }' class='item-description'>${toDo.description}</label>
+    }' ${toDo.completed ? 'checked' : ''}/>
+        <span ${
+          !toDo.completed ? "contentEditable='true'" : ''
+        } class='item-description ${
+      toDo.completed ? 'item-description-done' : ''
+    }'>${toDo.description}</span>
         <ion-icon name='ellipsis-vertical-outline' class='dynamic-icons'></ion-icon>
       </li>`;
 
-    listContainer.innerHTML += htmlText;
+    listContainer.insertAdjacentHTML('beforeend', htmlText);
   });
 };
 

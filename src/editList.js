@@ -15,7 +15,7 @@ export const addNewTask = () => {
   if (tasks.length === 0) newTask.index = 1;
   if (tasks.length > 0) newTask.index = tasks.length + 1;
   tasks.push(newTask);
-  saveTaskToLocal();
+  saveTaskToLocal(tasks);
   inputTask.value = '';
   location.reload();
 };
