@@ -13,7 +13,7 @@ export const saveTaskToLocal = (value) => {
 const getTaskFromLocal = () => {
   let dataFromLocal = JSON.parse(localStorage.getItem('task'));
   if (dataFromLocal) {
-    dataFromLocal.forEach((data, i) => {
+    _.forEach(dataFromLocal, (data, i) => {
       data.index = i + 1;
       tasks.push(data);
     });
