@@ -1,6 +1,6 @@
 import _ from 'lodash';
 // eslint-disable-next-line import/no-cycle
-import { addNewTask } from './class.js';
+import { addNewTask } from './class';
 // eslint-disable-next-line import/no-cycle
 import {
   saveTaskToLocal,
@@ -8,7 +8,7 @@ import {
   removeAll,
   populateList,
   listContainer,
-} from './index.js';
+} from './index';
 
 export const inputTask = document.querySelector('.input-tasks');
 const clearTaskBtn = document.querySelector('.clear-btn');
@@ -20,7 +20,7 @@ export const changeState = (value) => {
       value[i].completed = check.checked;
       saveTaskToLocal(value);
       const itemDesc = Array.from(
-        document.querySelectorAll('.item-description'),
+        document.querySelectorAll('.item-description')
       );
       if (value[i].completed === check.checked) {
         itemDesc[i].classList.add('item-description-done');
