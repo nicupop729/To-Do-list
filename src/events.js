@@ -1,8 +1,15 @@
 import _ from 'lodash';
-import { addNewTask } from './addRemove';
-import { saveTaskToLocal } from './index';
+import { addNewTask } from './class';
+import {
+  saveTaskToLocal,
+  tasks,
+  removeAll,
+  populateList,
+  listContainer,
+} from './index';
 
 export const inputTask = document.querySelector('.input-tasks');
+const clearTaskBtn = document.querySelector('.clear-btn');
 
 export const changeState = (value) => {
   const checkBox = document.querySelectorAll('.checkbox');
@@ -15,7 +22,6 @@ export const changeState = (value) => {
       );
       if ((value[i].completed = check.checked)) {
         itemDesc[i].classList.add('item-description-done');
-        itemDesc[i].contentEditable = 'false';
       } else {
         itemDesc[i].classList.remove('item-description-done');
         itemDesc[i].contentEditable = 'true';
@@ -31,4 +37,11 @@ inputTask.addEventListener('keydown', (e) => {
       addNewTask();
     }
   }
+});
+
+clearTaskBtn.addEventListener('click', () => {
+  removeAll();
+  listContainer.innerHTML = '';
+  populateList(tasks);
+  location.reload();
 });

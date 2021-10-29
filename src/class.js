@@ -1,7 +1,5 @@
-import { saveTaskToLocal } from './index';
-import { tasks } from './index';
+import { saveTaskToLocal, tasks } from './index';
 import { inputTask } from './events';
-
 class Task {
   constructor(description, completed = false, index) {
     this.description = description;
