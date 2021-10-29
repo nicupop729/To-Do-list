@@ -1,23 +1,25 @@
 import _ from 'lodash';
 import './style.css';
-import { changeState } from './events';
+// eslint-disable-next-line
+import { changeState } from './events.js';
 
 export const listContainer = document.querySelector('.list');
-
-export let tasks = [];
+// eslint-disable-next-line
+let tasks = [];
+export { tasks };
 
 export const saveTaskToLocal = (value) => {
   localStorage.setItem('task', JSON.stringify(value));
 };
 
 const getTaskFromLocal = () => {
-  let dataFromLocal = JSON.parse(localStorage.getItem('task'));
+  const dataFromLocal = JSON.parse(localStorage.getItem('task'));
   if (dataFromLocal) {
     _.forEach(dataFromLocal, (data, i) => {
       data.index = i + 1;
       tasks.push(data);
     });
-  } else return;
+  }
 };
 
 getTaskFromLocal();
@@ -39,18 +41,17 @@ export const populateList = (values) => {
   _.forEach(sortedTasks, (toDo) => {
     const htmlText = `
     <li class='item'>
-    <input type='checkbox' class='checkbox' id='${toDo.description[0]}${
-      toDo.index
-    }' ${toDo.completed ? 'checked' : ''}/>
-    <div class="inside-div">
-    <span contentEditable='true' class='item-description ${
-      toDo.completed ? 'item-description-done' : ''
-    }'>${
-      toDo.description
-    }<ion-icon name="trash-outline" class="display-icon trash-icon"></ion-icon></span>
-    <ion-icon name='ellipsis-vertical-outline' class='dynamic-icons'></ion-icon>
-    
-    </div>
+      <input type='checkbox' class='checkbox' id='${toDo.description[0]}${
+  toDo.index
+}' ${toDo.completed ? 'checked' : ''}/>
+      <div class="inside-div">
+        <span contentEditable='true' class='item-description ${
+  toDo.completed ? 'item-description-done' : ''
+}'>${
+  toDo.description
+}<ion-icon name="trash-outline" class="display-icon trash-icon"></ion-icon></span>
+        <ion-icon name='ellipsis-vertical-outline' class='dynamic-icons'></ion-icon>    
+      </div>
     </li>`;
 
     listContainer.insertAdjacentHTML('beforeend', htmlText);
@@ -71,7 +72,6 @@ _.forEach(liItem, (item, i) => {
     taskIcon[i].classList.add('display-icon');
     trashIcons[i].classList.remove('display-icon');
     trashIcons[i].addEventListener('click', () => {
-      console.log('clicked');
       tasks.splice(tasks.indexOf(tasks[i]), 1);
       tasks.forEach((task, i) => {
         task.index = i + 1;
@@ -79,6 +79,7 @@ _.forEach(liItem, (item, i) => {
       saveTaskToLocal(tasks);
       listContainer.innerHTML = '';
       populateList(tasks);
+      // eslint-disable-next-line
       location.reload();
     });
   });

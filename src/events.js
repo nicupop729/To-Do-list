@@ -1,12 +1,14 @@
 import _ from 'lodash';
-import { addNewTask } from './class';
+// eslint-disable-next-line import/no-cycle
+import { addNewTask } from './class.js';
+// eslint-disable-next-line import/no-cycle
 import {
   saveTaskToLocal,
   tasks,
   removeAll,
   populateList,
   listContainer,
-} from './index';
+} from './index.js';
 
 export const inputTask = document.querySelector('.input-tasks');
 const clearTaskBtn = document.querySelector('.clear-btn');
@@ -18,9 +20,9 @@ export const changeState = (value) => {
       value[i].completed = check.checked;
       saveTaskToLocal(value);
       const itemDesc = Array.from(
-        document.querySelectorAll('.item-description')
+        document.querySelectorAll('.item-description'),
       );
-      if ((value[i].completed = check.checked)) {
+      if (value[i].completed === check.checked) {
         itemDesc[i].classList.add('item-description-done');
       } else {
         itemDesc[i].classList.remove('item-description-done');
@@ -43,5 +45,6 @@ clearTaskBtn.addEventListener('click', () => {
   removeAll();
   listContainer.innerHTML = '';
   populateList(tasks);
+  // eslint-disable-next-line
   location.reload();
 });
