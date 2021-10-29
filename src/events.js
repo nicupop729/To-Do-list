@@ -20,7 +20,7 @@ export const changeState = (value) => {
       value[i].completed = check.checked;
       saveTaskToLocal(value);
       const itemDesc = Array.from(
-        document.querySelectorAll('.item-description')
+        document.querySelectorAll('.item-description'),
       );
       if (value[i].completed === check.checked) {
         itemDesc[i].classList.add('item-description-done');
