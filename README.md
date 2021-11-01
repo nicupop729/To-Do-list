@@ -13,6 +13,10 @@ On this To-Do list, items can be added. When tasks completed, marked them as so 
 - Major languages: HTML, CSS, JavaScript;
 - Technologies used: Git, GitHub, Webpack;
 
+## Live Demo
+
+[Live Demo Link - with netlify](https://to-do-list-by-nicu-pop.netlify.app/)
+
 ## Setup
 
 To get a local copy up and running follow these simple example steps.
