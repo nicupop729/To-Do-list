@@ -15,8 +15,7 @@ On this To-Do list, items can be added. When tasks completed, marked them as so 
 
 ## Live Demo
 
-[Live Demo Link - with netlify](https://to-do-list-by-nicu-pop.netlify.app/)<br />
-[Live Demo Link - with GitHub pages](https://nicupop729.github.io/To-Do-list/dist)
+[Live Demo Link - with netlify](https://to-do-list-by-nicu-pop.netlify.app/)
 
 ## Setup
 
