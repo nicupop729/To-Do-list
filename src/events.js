@@ -46,6 +46,5 @@ clearTaskBtn.addEventListener('click', () => {
   removeAll();
   listContainer.innerHTML = '';
   populateList(tasks);
-  // eslint-disable-next-line
-  location.reload();
+  window.location.reload();
 });
