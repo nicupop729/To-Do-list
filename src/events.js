@@ -6,8 +6,8 @@ import {
   saveTaskToLocal,
   tasks,
   removeAll,
-  listContainer,
   populateList,
+  listContainer,
 } from './index';
 
 export const inputTask = document.querySelector('.input-tasks');
@@ -20,7 +20,7 @@ export const changeState = (value) => {
       value[i].completed = check.checked;
       saveTaskToLocal(value);
       const itemDesc = Array.from(
-        document.querySelectorAll('.item-description')
+        document.querySelectorAll('.item-description'),
       );
       // eslint-disable-next-line
       if ((value[i].completed = check.checked)) {
@@ -43,9 +43,9 @@ inputTask.addEventListener('keydown', (e) => {
 });
 
 clearTaskBtn.addEventListener('click', () => {
-  populateList(tasks);
+  removeAll();
   listContainer.innerHTML = '';
+  populateList(tasks);
   // eslint-disable-next-line
   location.reload();
-  removeAll();
 });
