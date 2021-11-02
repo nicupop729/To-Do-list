@@ -2,6 +2,8 @@ import _ from 'lodash';
 import './style.css';
 // eslint-disable-next-line
 import { changeState } from './events.js';
+// eslint-disable-next-line
+import { addNewTask } from './class';
 
 export const listContainer = document.querySelector('.list');
 // eslint-disable-next-line
@@ -71,16 +73,28 @@ _.forEach(liItem, (item, i) => {
     item.style.backgroundColor = 'rgba(248, 244, 2, 0.322)';
     taskIcon[i].classList.add('display-icon');
     trashIcons[i].classList.remove('display-icon');
+
+    textDescription[i].addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+
+        tasks[i].description = textDescription[i].textContent;
+        saveTaskToLocal(tasks);
+        listContainer.innerHTML = '';
+        populateList(tasks);
+        window.location.reload();
+      }
+    });
+
     trashIcons[i].addEventListener('click', () => {
-      tasks.splice(tasks.indexOf(tasks[i]), 1);
-      tasks.forEach((task, i) => {
+      tasks.splice(i, 1);
+      _.forEach(tasks, (task, i) => {
         task.index = i + 1;
       });
       saveTaskToLocal(tasks);
       listContainer.innerHTML = '';
       populateList(tasks);
-      // eslint-disable-next-line
-      location.reload();
+      window.location.reload();
     });
   });
 

@@ -22,7 +22,8 @@ export const changeState = (value) => {
       const itemDesc = Array.from(
         document.querySelectorAll('.item-description'),
       );
-      if (value[i].completed === check.checked) {
+      // eslint-disable-next-line
+      if ((value[i].completed = check.checked)) {
         itemDesc[i].classList.add('item-description-done');
       } else {
         itemDesc[i].classList.remove('item-description-done');
@@ -45,6 +46,5 @@ clearTaskBtn.addEventListener('click', () => {
   removeAll();
   listContainer.innerHTML = '';
   populateList(tasks);
-  // eslint-disable-next-line
-  location.reload();
+  window.location.reload();
 });

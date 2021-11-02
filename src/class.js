@@ -18,6 +18,5 @@ export const addNewTask = () => {
   tasks.push(newTask);
   saveTaskToLocal(tasks);
   inputTask.value = '';
-  // eslint-disable-next-line
-  location.reload();
+  window.location.reload();
 };
