@@ -87,8 +87,8 @@ _.forEach(liItem, (item, i) => {
     });
 
     trashIcons[i].addEventListener('click', () => {
-      tasks.splice(tasks.indexOf(tasks[i]), 1);
-      tasks.forEach((task, i) => {
+      tasks.splice(i, 1);
+      _.forEach(tasks, (task, i) => {
         task.index = i + 1;
       });
       saveTaskToLocal(tasks);
@@ -102,13 +102,5 @@ _.forEach(liItem, (item, i) => {
     item.style.backgroundColor = '#fff';
     taskIcon[i].classList.remove('display-icon');
     trashIcons[i].classList.add('display-icon');
-
-    if (tasks[i].description !== textDescription[i].textContent) {
-      tasks[i].description = textDescription[i].textContent;
-      saveTaskToLocal(tasks);
-      listContainer.innerHTML = '';
-      populateList(tasks);
-      window.location.reload();
-    }
   });
 });
