@@ -15,4 +15,7 @@ describe('test add and delete element', () => {
     }
     expect(tasks.length).toBe(1);
   });
+  test('test local storage', () => {
+    expect(Object.keys(localStorage.__STORE__).length).toBe(1);
+  });
 });

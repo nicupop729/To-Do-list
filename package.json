@@ -1,8 +1,11 @@
 {
   "name": "to-do-list",
   "jest": {
+    "resetMocks": false,
     "setupFiles": [
-      "./src/__mocks__/global-html-mock.js"
+      "./src/__mocks__/global-html-mock.js",
+      "jest-localstorage-mock",
+      "./src/__mocks__/add-task.js"
     ]
   },
   "version": "1.0.0",
@@ -33,6 +36,7 @@
     "eslint-plugin-import": "^2.25.2",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.3.1",
+    "jest-localstorage-mock": "^2.4.18",
     "style-loader": "^3.3.1",
     "webpack": "^5.60.0",
     "webpack-cli": "^4.9.1",

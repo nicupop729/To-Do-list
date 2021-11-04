@@ -1,3 +1,5 @@
+import 'jest-localstorage-mock';
+
 const inputTask = global.document.querySelector('.input-tasks');
 
 const tasks = [];
@@ -15,7 +17,7 @@ const addNewTask = () => {
   if (tasks.length === 0) newTask.index = 1;
   if (tasks.length > 0) newTask.index = tasks.length + 1;
   tasks.push(newTask);
-  // saveTaskToLocal(tasks);
+  localStorage.setItem('task', JSON.stringify(inputTask.value));
   inputTask.value = '';
   window.location.reload();
 };
