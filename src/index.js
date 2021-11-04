@@ -3,7 +3,7 @@ import './style.css';
 // eslint-disable-next-line
 import { changeState } from './events.js';
 // eslint-disable-next-line
-import { addNewTask, deleteIndividualTask } from './class';
+import { deleteIndividualTask } from './class';
 
 export const listContainer = document.querySelector('.list');
 // eslint-disable-next-line
@@ -65,7 +65,9 @@ changeState(tasks);
 
 const taskIcon = Array.from(document.querySelectorAll('.dynamic-icons'));
 const trashIcons = [...document.querySelectorAll('.trash-icon')];
-const textDescription = [...document.querySelectorAll('.item-description')];
+export const textDescription = [
+  ...document.querySelectorAll('.item-description'),
+];
 const liItem = [...document.querySelectorAll('.item')];
 
 _.forEach(liItem, (item, i) => {
@@ -74,15 +76,18 @@ _.forEach(liItem, (item, i) => {
     taskIcon[i].classList.add('display-icon');
     trashIcons[i].classList.remove('display-icon');
 
+    const editTask = () => {
+      tasks[i].description = textDescription[i].textContent;
+      saveTaskToLocal(tasks);
+      listContainer.innerHTML = '';
+      populateList(tasks);
+      window.location.reload();
+    };
+
     textDescription[i].addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         e.preventDefault();
-
-        tasks[i].description = textDescription[i].textContent;
-        saveTaskToLocal(tasks);
-        listContainer.innerHTML = '';
-        populateList(tasks);
-        window.location.reload();
+        editTask();
       }
     });
 
