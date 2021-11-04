@@ -19,7 +19,7 @@ const addNewTask = () => {
   tasks.push(newTask);
   localStorage.setItem('task', JSON.stringify(inputTask.value));
   inputTask.value = '';
-  window.location.reload();
+  // window.location.reload();
 };
 
 export { addNewTask, tasks, inputTask };

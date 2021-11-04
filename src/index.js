@@ -3,7 +3,7 @@ import './style.css';
 // eslint-disable-next-line
 import { changeState } from './events.js';
 // eslint-disable-next-line
-import { addNewTask } from './class';
+import { addNewTask, deleteIndividualTask } from './class';
 
 export const listContainer = document.querySelector('.list');
 // eslint-disable-next-line
@@ -86,19 +86,7 @@ _.forEach(liItem, (item, i) => {
       }
     });
 
-    trashIcons[i].addEventListener('click', () => {
-      tasks.splice(i, 1);
-      setTimeout(
-        _.forEach(tasks, (task, i) => {
-          task.index = i + 1;
-        }),
-        saveTaskToLocal(tasks),
-        (listContainer.innerHTML = ''),
-        populateList(tasks),
-        window.location.reload(),
-        1000,
-      );
-    });
+    trashIcons[i].addEventListener('click', deleteIndividualTask);
   });
 
   textDescription[i].addEventListener('focusout', () => {

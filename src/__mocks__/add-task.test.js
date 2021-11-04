@@ -1,6 +1,6 @@
 import { addNewTask, tasks, inputTask } from './add-task';
 
-describe('test add and delete element', () => {
+describe('test add element', () => {
   test('add element with valid input', () => {
     inputTask.value = 'bake bread';
     if (inputTask.value !== '') {
@@ -16,6 +16,7 @@ describe('test add and delete element', () => {
     expect(tasks.length).toBe(1);
   });
   test('test local storage', () => {
+    // eslint-disable-next-line
     expect(Object.keys(localStorage.__STORE__).length).toBe(1);
   });
 });
