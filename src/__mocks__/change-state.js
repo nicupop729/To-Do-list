@@ -27,14 +27,14 @@ const populateList = (values) => {
     const htmlText = `
     <li class='item'>
       <input type='checkbox' class='checkbox' id='${toDo.description[0]}${
-      toDo.index
-    }' ${toDo.completed ? 'checked' : ''}/>
+  toDo.index
+}' ${toDo.completed ? 'checked' : ''}/>
       <div class="inside-div">
         <span contentEditable='true' class='item-description ${
-          toDo.completed ? 'item-description-done' : ''
-        }'>${
-      toDo.description
-    }<ion-icon name="trash-outline" class="display-icon trash-icon"></ion-icon></span>
+  toDo.completed ? 'item-description-done' : ''
+}'>${
+  toDo.description
+}<ion-icon name="trash-outline" class="display-icon trash-icon"></ion-icon></span>
         <ion-icon name='ellipsis-vertical-outline' class='dynamic-icons'></ion-icon>
       </div>
     </li>`;
@@ -43,27 +43,21 @@ const populateList = (values) => {
   });
 };
 
-
-populateList(tasks)
-const check = [...global.document.querySelectorAll('.checkbox')]
+populateList(tasks);
+const check = [...global.document.querySelectorAll('.checkbox')];
 
 export const changeState = () => {
-    tasks[1].completed = check[1].checked;
-    localStorage.setItem('task', JSON.stringify(tasks));
-    const itemDesc = Array.from(global.document.querySelectorAll('.item-description'));
-    // eslint-disable-next-line
+  tasks[1].completed = check[1].checked;
+  localStorage.setItem('task', JSON.stringify(tasks));
+  const itemDesc = Array.from(global.document.querySelectorAll('.item-description'));
+  // eslint-disable-next-line
     if ((tasks[1].completed = check[1].checked)) {
-      itemDesc[1].classList.add('item-description-done');
-    } else {
-      itemDesc[1].classList.remove('item-description-done');
-      itemDesc[1].contentEditable = 'true';
-    }
-    populateList(tasks)
+    itemDesc[1].classList.add('item-description-done');
+  } else {
+    itemDesc[1].classList.remove('item-description-done');
+    itemDesc[1].contentEditable = 'true';
+  }
+  populateList(tasks);
 };
 
-
-
-
-
-export const checkBox = [...document.querySelectorAll('.checkbox')]
-
+export const checkBox = [...document.querySelectorAll('.checkbox')];

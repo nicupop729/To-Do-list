@@ -19,7 +19,7 @@ export const tasks = [
   },
 ];
 
-export const listContainer = global.document.querySelector('.list');
+const listContainer = global.document.querySelector('.list');
 
 const populateList = (values) => {
   const sortedTasks = _.sortBy(values, 'index');
@@ -45,7 +45,6 @@ const populateList = (values) => {
 
 populateList(tasks);
 
-export const liItem = [...document.querySelectorAll('.item')];
 export const textDescription = [
   ...global.document.querySelectorAll('.item-description'),
 ];
