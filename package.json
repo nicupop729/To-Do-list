@@ -7,7 +7,8 @@
       "jest-localstorage-mock",
       "./src/__mocks__/add-task.js",
       "./src/__mocks__/delete-task.js",
-      "./src/__mocks__/edit-task.js"
+      "./src/__mocks__/edit-task.js",
+      "./src/__mocks__/change-state.js"
     ]
   },
   "version": "1.0.0",
