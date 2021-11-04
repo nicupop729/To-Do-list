@@ -7,6 +7,17 @@ const tasks = [
     completed: true,
     index: 1,
   },
+  {
+    description: 'do shopping',
+    completed: false,
+    index: 2,
+  },
+  {
+    description: 'water the flowers',
+    completed: true,
+    index: 3,
+  },
+
 ];
 
 const listContainer = document.querySelector('.list');
@@ -41,7 +52,6 @@ const deleteIndividualTask = (i) => {
   localStorage.setItem('task', JSON.stringify(tasks));
   listContainer.innerHTML = '';
   populateList(tasks);
-  // window.location.reload();
 };
 
 export { deleteIndividualTask, tasks };
