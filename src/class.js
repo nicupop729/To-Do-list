@@ -1,13 +1,8 @@
 import _ from 'lodash';
 // eslint-disable-next-line
-import {
-  saveTaskToLocal,
-  tasks,
-  listContainer,
-  populateList,
-} from './index.js';
+import { saveTaskToLocal, tasks, listContainer, populateList } from './index';
 // eslint-disable-next-line
-import { inputTask } from './events.js';
+import { inputTask } from './events';
 
 class Task {
   constructor(description, completed = false, index) {
