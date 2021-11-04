@@ -28,14 +28,14 @@ const populateList = (values) => {
     const htmlText = `
     <li class='item'>
       <input type='checkbox' class='checkbox' id='${toDo.description[0]}${
-      toDo.index
-    }' ${toDo.completed ? 'checked' : ''}/>
+  toDo.index
+}' ${toDo.completed ? 'checked' : ''}/>
       <div class="inside-div">
         <span contentEditable='true' class='item-description ${
-          toDo.completed ? 'item-description-done' : ''
-        }'>${
-      toDo.description
-    }<ion-icon name="trash-outline" class="display-icon trash-icon"></ion-icon></span>
+  toDo.completed ? 'item-description-done' : ''
+}'>${
+  toDo.description
+}<ion-icon name="trash-outline" class="display-icon trash-icon"></ion-icon></span>
         <ion-icon name='ellipsis-vertical-outline' class='dynamic-icons'></ion-icon>
       </div>
     </li>`;
