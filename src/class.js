@@ -1,7 +1,8 @@
+import _ from 'lodash';
 // eslint-disable-next-line
-import { saveTaskToLocal, tasks } from './index.js';
+import { saveTaskToLocal, tasks, listContainer, populateList } from './index';
 // eslint-disable-next-line
-import { inputTask } from './events.js';
+import { inputTask } from './events';
 
 class Task {
   constructor(description, completed = false, index) {
@@ -19,4 +20,18 @@ export const addNewTask = () => {
   saveTaskToLocal(tasks);
   inputTask.value = '';
   window.location.reload();
+};
+
+export const deleteIndividualTask = (i) => {
+  tasks.splice(i, 1);
+  setTimeout(
+    _.forEach(tasks, (task, i) => {
+      task.index = i + 1;
+    }),
+    saveTaskToLocal(tasks),
+    (listContainer.innerHTML = ''),
+    populateList(tasks),
+    window.location.reload(),
+    1000,
+  );
 };
