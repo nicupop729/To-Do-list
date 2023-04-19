@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: rgb(216, 216, 216);
+  background-color: rgb(216 216 216 / 20%);
 }
 
 .container {
@@ -16,7 +16,7 @@ body {
   max-width: 500px;
   background-color: #fff;
   margin: 10% auto;
-  border: 1px solid rgb(161, 161, 161);
+  border: 1px solid rgb(161 161 161 / 20%);
   box-shadow: -5px 5px 10px #888;
 }
 
@@ -31,7 +31,7 @@ body {
 }
 
 .title-to-do {
-  color: rgb(75, 75, 75);
+  color: rgb(75 75 75 / 20%);
   font-size: 20px;
   font-weight: 600;
 }
@@ -87,11 +87,11 @@ input:focus {
   position: relative;
 }
 
-input[type='checkbox'] + label {
+input[type="checkbox"] + label {
   color: black;
 }
 
-input[type='checkbox']:checked + label {
+input[type="checkbox"]:checked + label {
   color: grey;
   font-style: normal;
   text-decoration: line-through;

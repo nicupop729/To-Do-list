@@ -5,7 +5,7 @@ const inputTask = global.document.querySelector('.input-tasks');
 const tasks = [];
 
 class Task {
-  constructor(description, completed = false, index) {
+  constructor(description, index, completed = false) {
     this.description = description;
     this.completed = completed;
     this.index = index;
