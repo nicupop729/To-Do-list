@@ -5,7 +5,7 @@ import { saveTaskToLocal, tasks, listContainer, populateList } from './index';
 import { inputTask } from './events';
 
 class Task {
-  constructor(description, completed = false, index) {
+  constructor(description, index, completed = false) {
     this.description = description;
     this.completed = completed;
     this.index = index;
